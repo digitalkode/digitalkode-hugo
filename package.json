@@ -1,0 +1,36 @@
+{
+  "name": "digitalkode-hugo",
+  "version": "1.0.0",
+  "author": "Dihak",
+  "description": "Digitalkode Theme for Hugo",
+  "license": "MIT",
+  "scripts": {
+    "develop": "hugo server -s ./exampleSite/",
+    "build:example": "hugo -s ./exampleSite/",
+    "format": "prettier ./ --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": ">=10",
+    "prettier": "^2.0.5"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 2%"
+  ],
+  "homepage": "https://github.com/digitalkode/digitalkode-hugo",
+  "bugs": "https://github.com/digitalkode/digitalkode-hugo/issues",
+  "keywords": [
+    "hugo",
+    "blog",
+    "go"
+  ],
+  "lint-staged": {
+    "*.{js,css,scss}": "prettier --write"
+  }
+}

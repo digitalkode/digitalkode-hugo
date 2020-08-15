@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="{{ if .IsHome}}{{ .Site.Params.Description }}{{ else }}{{.Page.Params.Description}}{{ end }}">
+  <meta name="keywords" content="{{ delimit .Keywords " , " }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Twitter -->
+  {{ if isset .Site.Params "twitter" }}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ .Title }}" />
+  <meta name="twitter:description"
+    content="{{ if .IsHome }}{{ htmlEscape .Site.Params.description }}{{ else }}{{ htmlEscape .Description }}{{ end }}" />
+  <meta name="twitter:site" content="{{ .Site.Params.twitterSite | default .Site.Params.twitter }}" />
+  <meta name="twitter:creator" content="{{ .Site.Params.twitterCreator | default .Site.Params.twitter }}" />
+  {{ end }}
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+  <!-- Styles -->
+  {{ partial "dependencies-css.html" .}}
+  {{ block "styles" . }} {{ end }}
+  <!-- Get "style_opts" variable from "styles" block -->
+  {{ $style := resources.Get "scss/app.scss" | resources.ExecuteAsTemplate "css/app.css" . | toCSS | minify | fingerprint }}
+  <link type="text/css" rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
+
+  {{ range .AlternativeOutputFormats }}
+  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
+  {{ end }}
+  {{ block "links" . }} {{ end }}
+  {{ partial "seo-schema.html" .}}
+
+  {{- if not .Site.IsServer -}}
+  {{ template "_internal/google_analytics_async.html" . }}
+  {{- end -}}
+</head>
+
+<body class="home-version-4" data-style="default">
+  {{ partial "loader.html" .}}
+
+  <div id="main_content">
+    {{ partial "header.html" .}}
+    {{ block "main" . }} {{ end }}
+    {{ partial "footer.html" .}}
+  </div>
+
+  {{ partial "dependencies-js.html" .}}
+  {{ $script := resources.Get "js/header.js" | minify | fingerprint }}
+  <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity | safeHTMLAttr }}"
+    crossorigin="anonymous"></script>
+  {{ $script := resources.Get "js/app.js" | minify | fingerprint }}
+  <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity | safeHTMLAttr }}"
+    crossorigin="anonymous"></script>
+  {{ $script := resources.Get "js/custom.js" | minify | fingerprint }}
+  <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity | safeHTMLAttr }}"
+    crossorigin="anonymous"></script>
+  {{ block "scripts" . }} {{ end }}
+</body>
+
+</html>
