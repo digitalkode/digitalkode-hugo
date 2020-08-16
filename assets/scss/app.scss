@@ -3,6 +3,7 @@
 @import './partials/banner';
 @import './partials/featured';
 @import './partials/testimonial';
+@import './partials/tags';
 
 .pricing {
   padding: 116px 0 120px;
@@ -1695,9 +1696,9 @@
 }
 
 .page-banner {
-  background: #fdf8f8;
+  background: #e2f0ff;
   text-align: center;
-  height: 550px;
+  height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1835,7 +1836,7 @@
   left: 0;
 
   .ball {
-    background: #fdf1f1;
+    background: #4b82e8;
     border-radius: 50%;
     position: absolute;
 
@@ -4450,9 +4451,12 @@
 
     &.active {
       background: #7052fb;
-      color: #fff;
       -webkit-box-shadow: 0 20px 30px 0 rgba(176, 70, 70, 0.3);
       box-shadow: 0 20px 30px 0 rgba(176, 70, 70, 0.3);
+      
+      a {
+        color: #fff;
+      }
     }
   }
 }

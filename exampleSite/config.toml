@@ -18,7 +18,7 @@ copyright = "© {year}"
 
 # Optional params
 [params]
-  description = "Muwujudkan mimpi di dunia digital"
+  description = "Mewujudkan mimpi di dunia digital"
   # Follow the Hugo date/time format reference here: 
   # https://gohugo.io/functions/format/#gos-layout-string
   dateFormat = "Jan 2 2006"
@@ -37,8 +37,8 @@ copyright = "© {year}"
   iconOrder = ["Twitter", "GitHub", "Facebook", "LinkedIn"]
 
   # Metadata for Twitter cards, defaults to params.twitter
-  # twitterSite = "@<your handle>"
-  # twitterAuthor = "@<your handle>"
+  twitterSite = "@digitalkode"
+  twitterAuthor = "@digitalkode"
 
   # Set to true to display page title in table of contents in blog posts.
   showPageTitleInTOC = false
@@ -67,6 +67,3 @@ copyright = "© {year}"
   name = "blog"
   title = "Blog"
   url = "/blog"
-
-
-

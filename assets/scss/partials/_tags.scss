@@ -1,0 +1,13 @@
+ul.tags__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li.tag__item {
+    display: inline-block;
+
+    a:before {
+      content: '#';
+    }
+  }
+}
