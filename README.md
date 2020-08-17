@@ -1,6 +1,6 @@
 ## DIGITALKODE
 
-A digitalkode theme build with [Hugo](https://gohugo.io/) 🍜
+A digitalkode theme for [Hugo](https://gohugo.io/) 🍜
 
 ## HOW TO 
 
