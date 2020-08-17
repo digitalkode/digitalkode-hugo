@@ -28,7 +28,9 @@
             {{ range .Paginator.Pages }}
             <div class="col-lg-4 col-md-6">
                 <article class="post-post-grid">
-                    <div class="feature-image"><a href="blog-signle.html"><img src="media/blog/13.jpg" alt=""></a></div>
+                    {{ if .Params.thumbnail }}
+                    <div class="feature-image"><a href="{{.RelPermalink}}"><img src="{{ .Params.thumbnail }}" alt="{{.Title}}"></a></div>
+                    {{ end }}
                     <div class="blog-content">
                         {{ partial "blog/tags.html" .}}
                         <ul class="post-meta">
