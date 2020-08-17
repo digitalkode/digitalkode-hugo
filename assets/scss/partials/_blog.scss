@@ -1,0 +1,121 @@
+.blog-single {
+  padding-top: 120px;
+
+  .post {
+    margin-bottom: 20px;
+
+    .blog-content {
+      padding: 40px 0 20px;
+
+      h3 {
+        font-size: 34px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  blockquote {
+    margin: 42px 0;
+    display: block;
+    border-left: 5px solid #4b82e8;
+    padding-left: 10px;
+  }
+
+  .tagcloud {
+    span {
+      color: #2b2350;
+      display: inline-block;
+      margin-right: 15px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    a {
+      line-height: 25px;
+    }
+  }
+}
+
+.post {
+  h2, h3 {
+    position: relative;
+    padding-top: 10px;
+  }
+
+  h2 .anchor, h3 .anchor {
+    top: 10px;
+    text-decoration: none;
+    position: absolute;
+    left: -2rem;
+    font-weight: 400;
+  }
+}
+
+table {
+  max-width: 100%;
+  border-spacing: 0;
+
+  thead {
+    background: #007bff;
+    color: #fff;
+  }
+
+  th, td {
+    padding: .5em 1em;
+    border: 1px double #eee;
+  }
+}
+
+.pagination {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .pagination {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.pagination__item {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+
+  &:nth-child(2) {
+    margin-top: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .pagination__item {
+    width: 275px;
+    padding: 15px;
+    border-radius: 4px;
+
+    &:first-of-type {
+      padding-right: 15px;
+    }
+
+    &:last-of-type {
+      margin-top: 0;
+    }
+
+    &:hover {
+      background-color: #f6f9fc;
+    }
+  }
+}
+
+.pagination__label {
+  color: #9b9b9b;
+  font-size: 0.8rem;
+}
+
+.pagination__title {
+  color: #111;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}

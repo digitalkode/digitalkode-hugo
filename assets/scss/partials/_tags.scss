@@ -5,6 +5,7 @@ ul.tags__list {
 
   li.tag__item {
     display: inline-block;
+    margin-right: 5px;
 
     a:before {
       content: '#';

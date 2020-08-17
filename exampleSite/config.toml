@@ -11,7 +11,7 @@ baseURL = "https://www.digitalkode.com/"
 copyright = "© {year}"
 
 # Add your Disqus shortname here.
-# disqusShortname = ""
+disqusShortname = "digitalkode"
 
 # Add your Google Analytics identifier: UA-XXXXXXXX-X
 # googleAnalytics = "" 
