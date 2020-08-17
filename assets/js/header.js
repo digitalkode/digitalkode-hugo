@@ -108,10 +108,9 @@
             .removeClass("fixed-header-scroll"));
   }),
     s(t).width() >= s(".menu-wrapper").data("top") &&
-      s('.site-main-menu li:not(.menu-item-has-children) > a[href^="#"]').on(
+      s('a[href^="#"]').on(
         "click",
         function (e) {
-          e.preventDefault();
           var n = s(this).attr("href");
           s(n).length &&
             s("html,body").animate(
@@ -119,7 +118,7 @@
                 scrollTop:
                   s(n).offset().top - s(".header_trans-fixed").outerHeight(),
               },
-              "slow",
+              "fast",
             );
         },
       ),
