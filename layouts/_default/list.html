@@ -40,6 +40,10 @@
                     </div>
                 </article>
             </div>
+            {{ else }}
+            <div class="col-12">
+                <h3 class="text-center">Tidak ada Post Tersedia</h3>
+            </div>
             {{ end }}
         </div>
         {{ partial "blog/pagination.html" . }}
