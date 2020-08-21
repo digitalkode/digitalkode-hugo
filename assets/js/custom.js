@@ -52,3 +52,9 @@ var swiperz = new Swiper('.swiper-containerz', {
     }
   }
 });
+
+window.addEventListener('load', function() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  }
+})
