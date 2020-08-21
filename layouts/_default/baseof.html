@@ -28,7 +28,7 @@
   {{- if .Params.thumbnail -}}
   <meta property="og:image" content="{{ .Params.thumbnail | absURL }}"/>
   {{ end }}
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800">
   <!-- Styles -->
   {{ partial "dependencies-css.html" .}}
