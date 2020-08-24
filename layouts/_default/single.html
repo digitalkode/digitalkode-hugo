@@ -26,9 +26,8 @@
             <div class="col-md-8">
                 <div class="post-wrapper">
                     <article class="post post-signle">
-                        <h1 class="page-title mb-4">{{.Title}}</h1>
                         {{ if .Params.thumbnail }}
-                        <div class="feature-image"><a href="{{.RelPermalink}}"><img src="{{ .Params.thumbnail }}" alt="{{.Title}}"></a></div>
+                        <div class="feature-image" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="{{.RelPermalink}}"><img src="{{ .Params.thumbnail }}" alt="{{.Title}}"></a></div>
                         {{ end }}
                         <div class="blog-content">
                             {{ partial "blog/anchored-headings.html" .Content }}

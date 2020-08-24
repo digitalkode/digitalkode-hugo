@@ -1,3 +1,4 @@
+
 var swipers = new Swiper('.swiper-containers', {
   effect: 'coverflow',
   grabCursor: true,
@@ -57,4 +58,6 @@ window.addEventListener('load', function() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
   }
-})
+});
+//initialize AOS
+AOS.init();

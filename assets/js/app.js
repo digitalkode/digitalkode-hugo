@@ -50,14 +50,6 @@ var PIXELSIGNS = PIXELSIGNS || {};
               .text(d(this).text());
           }),
         d(".lng-dropdown.init li:first-child").click(),
-        new WOW({
-          boxClass: "wow",
-          animateClass: "animated",
-          offset: 0,
-          mobile: !1,
-          live: !0,
-          scrollContainer: null,
-        }).init(),
         d(".faq .card").each(function () {
           var a = d(this);
           a.on("click", function (t) {
