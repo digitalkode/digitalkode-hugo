@@ -1,21 +1,20 @@
-
 var swipers = new Swiper('.swiper-containers', {
   effect: 'coverflow',
   grabCursor: true,
   centeredSlides: true,
   slidesPerView: 3,
-  loop:true,
-  toggle:true,
-  allowTouchMove:true,
+  loop: true,
+  toggle: true,
+  allowTouchMove: true,
   coverflowEffect: {
     rotate: 50,
     stretch: 0,
     depth: 100,
     modifier: 1,
     slideShadows: false,
-    
+
   },
-  
+
   breakpoints: {
     // when window width is >= 320px
     320: {
@@ -37,10 +36,10 @@ var swipers = new Swiper('.swiper-containers', {
 var swiperz = new Swiper('.swiper-containerz', {
   slidesPerView: 7,
   spaceBetween: 20,
-  loop:true,
+  loop: true,
   autoplay: {
     delay: 1000,
-    reverseDirection:true,
+    reverseDirection: true,
   },
   breakpoints: {
     480: {
@@ -54,10 +53,19 @@ var swiperz = new Swiper('.swiper-containerz', {
   }
 });
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
   }
 });
 //initialize AOS
 AOS.init();
+//adding delayed modal
+$(document).ready(function () {
+  setTimeout(function()
+    {
+      $('.preloader').fadeOut(500);
+    }
+  ,2000);
+  
+});
