@@ -66,6 +66,6 @@ $(document).ready(function () {
     {
       $('.preloader').fadeOut(500);
     }
-  ,2000);
+  ,800);
   
 });
