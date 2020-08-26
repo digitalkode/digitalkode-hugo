@@ -69,3 +69,11 @@ $(document).ready(function () {
   ,800);
   
 });
+//typed.js init
+var typed = new Typed('#typed', {
+  strings: ["Mewujudkan mimpi di dunia Digital.", "Dari Developer untuk Developer.","KeepNgoding_KeepLearning."],
+  typeSpeed: 40,
+  loop:true,
+  showCursor: true,
+  cursorChar: '_',
+});
