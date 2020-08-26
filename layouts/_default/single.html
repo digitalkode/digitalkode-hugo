@@ -7,6 +7,13 @@
                 <li><time datetime="{{ .Date }}" class="post__date">{{ .Date.Format $dateFormat }}</time></li>
             </ul>
             <h1 class="page-title">{{.Title}}</h1>
+            {{ if .Params.authors }}
+            {{ range first 1 .Params.authors }}
+            {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+            <ul class="post-meta"><li><span>By</span> <a href="{{.Permalink}}">{{.Params.title}}</a></li></ul>
+            {{ end }}
+            {{ end }}
+            {{ end }}
             {{ partial "blog/tags.html" .}}
         </div>
     </div><svg class="circle" data-parallax="{&quot;x&quot; : -200}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="950px" height="950px">
@@ -55,6 +62,26 @@
                             <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{.Permalink}}"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                     </div>
+                    {{ if .Params.authors }}
+                    {{ range first 1 .Params.authors }}
+                    {{ with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+                    <div class="pixsass_post_author_box clearfix mt-2 mb-4">
+                        <div class="profile_image">
+                            <a href="{{.Permalink}}"><img alt="author" src="{{.Params.thumbnail}}"></a>
+                        </div>
+                        <div class="profile_content">
+                            <a href="{{.Permalink}}">
+                            <h4 class="profile_name">{{.Params.title}}</h4>
+                            </a>
+                            <span class="author-job">About Author</span>
+                            <div class="profile_bio">
+                                <p>{{.Content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
                     <div id="comments" class="mb-5">
                         {{ template "_internal/disqus.html" . }}
                     </div>
