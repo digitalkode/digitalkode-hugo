@@ -5862,4 +5862,19 @@
   }
 }
 
+.social-media {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  font-size: 1.3rem;
+  margin-top: 10px;
+  li {
+      display: inline-block;
+      margin: 0 10px;
+  }
+}
+
 @import './custom';
