@@ -61,14 +61,14 @@ window.addEventListener('load', function () {
 //initialize AOS
 AOS.init();
 //adding delayed modal
-$(document).ready(function () {
-  setTimeout(function()
-    {
-      $('.preloader').fadeOut(500);
-    }
-  ,800);
-  
-});
+if($(document).ready()){
+  $('.preloader').fadeOut(300);
+}
+else{
+  setTimeout(function(){
+    $('.preloader').fadeOut(300);
+  },1000);
+}
 //typed.js init
 var typed = new Typed('#typed', {
   strings: ["Mewujudkan mimpi di dunia Digital.", "Dari Developer untuk Developer.","KeepNgoding_KeepLearning."],
