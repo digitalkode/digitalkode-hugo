@@ -1,4 +1,3 @@
-
 <!-- JSON-LD -->
 <script type="application/ld+json">
   {{ if and (.IsPage) (eq .Section "blog") }}
@@ -22,7 +21,7 @@
 	  },
       "copyrightYear" : "{{ .Date.Format "2006" }}",
       "wordCount" : "{{ .WordCount }}"{{ if isset .Params "tags" }},
-	  "keywords" : [{{ range .Params.tags }}"{{ . }}", {{ end }}"Blog"]{{ end }}
+      "keywords" : [{{ range .Params.tags }}"{{ . }}", {{ end }}"Blog"]{{ end }}
     }
   {{ else }}
     {
@@ -34,9 +33,9 @@
 	         "name": "{{ .Site.Title }}",
 	         "sameAs": [
 	            "{{ .Site.Params.twitter }}",
-				"{{ .Site.Params.facebook }}",
-				"{{ .Site.Params.instagram }}",
-				"{{ .Site.Params.linkedin }}"
+                "{{ .Site.Params.facebook }}",
+                "{{ .Site.Params.instagram }}",
+                "{{ .Site.Params.linkedin }}"
 	         ],
 	         "founder": "{{ .Site.Title }}",
 	         "foundingDate": "2019"
