@@ -1,52 +1,97 @@
 <!DOCTYPE html>
-<html class='v2' dir='ltr' lang='en-US' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-
-<head>
-    <title>Page Not Found - Digitalkode</title>
-    <style type='text/css'>
-        body {
-            width: 70%;
-            margin: auto;
-            text-align: center;
-            margin-top: 100px;
-            font-family: sans-serif
-        }
-
-        div#title {
-            color: #4a86e8;
-            font-weight: 700;
-            font-size: 40px
-        }
-
-        div#subtitle {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 20px 0 50px
-        }
-
-        div#info {
-            text-align: left
-        }
-
-        a {
-            color: #4a86e8;
-            text-decoration: none
-        }
-
-        body>textarea {
-            display: none
-        }
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - {{ .Site.Title }}</title>
+    <meta name="description" content="Page or Document not found">
+    <link rel="canonical" href="{{ .Site.BaseURL }}/404/">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#7052fb">
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        font-family: sans-serif;
+        line-height: 1.15;
+        height: 100%;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 16px;
+        margin: 0;
+        line-height: 1.5;
+        height: 100%;
+        text-align: left;
+        color: #212121;
+        background: #fff;
+      }
+      .main {
+        display: table;
+        max-width: 80%;
+        height: 100%;
+        margin: auto;
+      }
+      .main > .container {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .title {
+        color: #7052fb;
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 40px;
+        text-transform: uppercase;
+        margin: 0;
+      }
+      .subtitle {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 20px;
+        margin: 16px 0;
+      }
+      .info {
+        margin: 34px 0;
+      }
+      a {
+        color: #7052fb;
+        text-decoration: none;
+      }
     </style>
-</head>
-
-<body itemscope=itemscope itemtype='http://schema.org/WebPage'>
-    <div id='b'>
-        <div id='title'>DIGITALKODE</div>
-        <div id='subtitle'> Not Found </div>
-        <div id='info'>
-            <p><b>Error 404</b></p>
-            <p>The requested URL was not found on this server. If you entered the URL manually please check your spelling and try again.<br /><br />If you think this is a server error, please contact the <a href='mailto:admin@digitalkode.com'>webmaster</a>.</p>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <h1 class="title">{{ .Site.Title }}</h1>
+        <h2 class="subtitle">404 Error: Page or Document not found</h2>
+        <div class="info">
+          <p>This could be caused by the following:</p>
+          <ul>
+            <li>The page or document is temporarily not available</li>
+            <li>The page or document was renamed and no longer exists</li>
+            <li>The bookmark being used is outdated</li>
+            <li>The URL was entered incorrectly</li>
+          </ul>
+          <p>
+            If you think this is a server error, please contact the
+            <a href="mailto:admin@digitalkode.com" title="Webmaster"
+              >webmaster</a
+            >.
+          </p>
+          <p>
+            Return to
+            <a href="{{ .Site.BaseURL }}" title="Homepage">homepage</a>.
+          </p>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

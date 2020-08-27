@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-
 <head>
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-
-  <meta charset="UTF-8">
-  <meta name="language" content="en">
-  <meta name="description" content="{{ if .IsHome}}{{ .Site.Params.Description }}{{ else }}{{.Page.Params.Description}}{{ end }}">
-  <meta name="keywords" content="{{ delimit .Keywords " , " }}">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Page.Params.description }}{{ end }}">
+  <link rel="canonical" href="{{ if .IsHome }}{{ .Site.BaseURL }}{{ else }}{{ .Permalink | absURL }}{{ end }}">
+  {{ if isset .Params "tags" }}
+  <meta name="keywords" content="{{ delimit .Params.Tags ", " }}">
+  {{ end }}
   <!-- Twitter -->
   {{ if isset .Site.Params "twitter" }}
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="{{ .Title }}" />
-  <meta name="twitter:description"
-    content="{{ if .IsHome }}{{ htmlEscape .Site.Params.description }}{{ else }}{{ htmlEscape .Description }}{{ end }}" />
-  <meta name="twitter:site" content="{{ .Site.Params.twitterSite | default .Site.Params.twitter }}" />
-  <meta name="twitter:creator" content="{{ .Site.Params.twitterCreator | default .Site.Params.twitter }}" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ .Title }}">
+  <meta name="twitter:description" content="{{ if .IsHome }}{{ htmlEscape .Site.Params.description }}{{ else }}{{ htmlEscape .Page.Params.description }}{{ end }}">
+  <meta name="twitter:site" content="{{ .Site.Params.twitterSite | default .Site.Params.twitter }}">
+  <meta name="twitter:creator" content="{{ .Site.Params.twitterCreator | default .Site.Params.twitter }}">
   {{ end }}
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="theme-color" content="#7052fb">
   {{ template "_internal/opengraph.html" . }}
   {{- if .Params.thumbnail -}}
-  <meta property="og:image" content="{{ .Params.thumbnail | absURL }}"/>
+  <meta property="og:image" content="{{ .Params.thumbnail | absURL }}">
   {{ end }}
   <link rel="manifest" href="/manifest.json">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800">
+  <link rel="manifest" href="/manifest.json">
+  <link crossorigin href="https://www.gstatic.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link crossorigin href="https://fonts.googleapis.com" rel="preconnect">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap">
   <!-- Styles -->
   {{ partial "dependencies-css.html" .}}
   {{ block "styles" . }} {{ end }}
   <!-- Get "style_opts" variable from "styles" block -->
   {{ $style := resources.Get "scss/app.scss" | resources.ExecuteAsTemplate "css/app.css" . | toCSS | minify | fingerprint }}
-  <link type="text/css" rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" />
+  <link type="text/css" rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
   {{ range .AlternativeOutputFormats }}
-  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s">` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
   {{ end }}
   {{ block "links" . }} {{ end }}
   {{ partial "seo-schema.html" .}}
@@ -46,10 +51,6 @@
   {{- if not .Site.IsServer -}}
   {{ template "_internal/google_analytics_async.html" . }}
   {{- end -}}
-  <meta name=theme-color content="#7052fb">
-  <meta name=msapplication-navbutton-color content="#7052fb">
-  <meta name=apple-mobile-web-app-status-bar-style content="#7052fb">
-  <meta name=msapplication-TileColor content="#7052fb">
 </head>
 
 <body class="home-version-4" id="body" data-style="default">

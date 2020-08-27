@@ -36,7 +36,7 @@
             <div class="col-lg-4 col-md-6">
                 <article class="post-post-grid">
                     {{ if .Params.thumbnail }}
-                    <div class="feature-image" href="{{.RelPermalink}}"><img src="{{ .Params.thumbnail }}" alt="{{.Title}}"></a></div>
+                    <div class="feature-image"><a href="{{.RelPermalink}}"><img src="{{ .Params.thumbnail }}" alt="{{.Title}}"></a></div>
                     {{ end }}
                     <div class="blog-content">
                         {{ partial "blog/tags.html" .}}

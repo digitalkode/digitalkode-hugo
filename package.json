@@ -4,25 +4,6 @@
   "author": "Dihak",
   "description": "Digitalkode Theme for Hugo",
   "license": "MIT",
-  "scripts": {
-    "develop": "hugo server -s ./exampleSite/",
-    "build:example": "hugo -s ./exampleSite/",
-    "format": "prettier ./ --write"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "devDependencies": {
-    "husky": "^4.2.5",
-    "lint-staged": ">=10",
-    "prettier": "^2.0.5"
-  },
-  "browserslist": [
-    "last 2 version",
-    "> 2%"
-  ],
   "homepage": "https://github.com/digitalkode/digitalkode-hugo",
   "bugs": "https://github.com/digitalkode/digitalkode-hugo/issues",
   "keywords": [
@@ -30,7 +11,35 @@
     "blog",
     "go"
   ],
+  "scripts": {
+    "develop": "hugo server -s ./exampleSite/",
+    "build:example": "hugo -s ./exampleSite/",
+    "format": "prettier --check \"./**/*.{js,json,yml,css,scss}\" --write"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "singleQuote": false,
+    "bracketSpacing": false,
+    "arrowParens": "always",
+    "trailingComma": "all",
+    "semi": true,
+    "proseWrap": "always"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{js,css,scss}": "prettier --write"
+    "*.{js,json,yml,css,scss}": "prettier --check --write"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 2%"
+  ],
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": ">=10",
+    "prettier": "^2.0.5"
   }
 }
