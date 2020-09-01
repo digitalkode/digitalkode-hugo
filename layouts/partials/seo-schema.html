@@ -1,65 +1,60 @@
-<!-- JSON-LD -->
 <script type="application/ld+json">
-  {{ if and (.IsPage) (eq .Section "blog") }}
+{{ if and (.IsPage) (eq .Section "blog") }}{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "datePublished": "{{ .Date }}",
+  "dateModified": "{{ .Date }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink | absURL }}"
+  },
+  "articleSection": "{{ .Section }}",
+  "inLanguage": "{{ .Site.LanguageCode }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}"
+  },
+  "copyrightYear": "{{ .Date.Format "2006" }}",
+  "wordCount": "{{ .WordCount }}"{{ if isset .Params "tags" }},
+  "keywords": [{{ range .Params.tags }}"{{ . }}", {{ end }}"Blog"]{{ end }}
+}{{ else }}{
+  "@context": "http://schema.org",
+  "@graph": [
     {
-      "@context" : "http://schema.org",
-      "@type" : "BlogPosting",
-      "headline" : "{{ .Title }}",
-      "description" : "{{ .Description }}",
-      "datePublished": "{{ .Date }}",
-      "dateModified" : "{{ .Date }}",
+      "@type": "Organization",
+      "url": "{{ .Site.BaseURL }}",
+      "name": "{{ .Site.Title }}",
+      "sameAs": [
+        "{{ .Site.Params.twitter }}",
+        "{{ .Site.Params.facebook }}",
+        "{{ .Site.Params.instagram }}",
+        "{{ .Site.Params.linkedin }}"
+      ],
+      "founder": "{{ .Site.Title }}",
+      "foundingDate": "2019"
+    },
+    {
+      "@type": "WebPage",
+      "url": "{{ .Site.BaseURL }}",
+      "name": "{{ .Site.Title }}",
+      "description": "{{ .Site.Params.description }}",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "{{ .Permalink | absURL }}"
-      },
-      "articleSection" : "{{ .Section }}",
-      "inLanguage" : "{{ .Site.LanguageCode }}",
-      "publisher": {
-	    "@type": "Organization",
-	    "name": "{{ .Site.Title }}",
-	    "url": "{{ .Site.BaseURL }}"
-	  },
-      "copyrightYear" : "{{ .Date.Format "2006" }}",
-      "wordCount" : "{{ .WordCount }}"{{ if isset .Params "tags" }},
-      "keywords" : [{{ range .Params.tags }}"{{ . }}", {{ end }}"Blog"]{{ end }}
-    }
-  {{ else }}
+        "@id": "{{ .Site.BaseURL }}"
+      }
+    },
     {
-	   "@context": "http://schema.org",
-	   "@graph": [
-	      {
-	         "@type": "Organization",
-	         "url": "{{ .Site.BaseURL }}",
-	         "name": "{{ .Site.Title }}",
-	         "sameAs": [
-	            "{{ .Site.Params.twitter }}",
-                "{{ .Site.Params.facebook }}",
-                "{{ .Site.Params.instagram }}",
-                "{{ .Site.Params.linkedin }}"
-	         ],
-	         "founder": "{{ .Site.Title }}",
-	         "foundingDate": "2019"
-	      },
-	      {
-	         "@type": "WebPage",
-	         "url": "{{ .Site.BaseURL }}",
-	         "name": "{{ .Site.Title }}",
-	         "description": "{{ .Site.Params.description }}",
-	         "mainEntityOfPage": {
-	            "@type": "WebPage",
-	            "@id": "{{ .Site.BaseURL }}"
-	         }
-	      },
-	      {
-	         "@type": "WebSite",
-	         "url": "{{ .Site.BaseURL }}",
-	         "potentialAction": {
-	            "@type": "SearchAction",
-	            "target": "{{ .Site.BaseURL }}search/?q={q}",
-	            "query-input": "required name=q"
-	         }
-	      }
-	   ]
-	}
- {{ end }}
+      "@type": "WebSite",
+      "url": "{{ .Site.BaseURL }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ .Site.BaseURL }}search/?q={q}",
+        "query-input": "required name=q"
+      }
+    }
+  ]
+}{{ end }}
 </script>
