@@ -26,7 +26,7 @@
     <div class="container">
         <div class="row">
             {{ range .Params.sessions }}
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" data-aos="flip-down" data-aos-delay="200">
                 <article class="post-post-grid">
                     {{ if .image }}
                     <div class="feature-image"><a href="{{.path}}"><img src="{{.image}}" alt="{{.title}}"></a></div>
@@ -35,7 +35,7 @@
                         <h3 class="entry-title mb-0"><a href="{{.path}}">{{ .title }}</a></h3>
                         <div>
                             <span>Status :</span>
-                            <span class="badge badge-{{ if eq .status "On Going"}}warning{{else}}success{{end}}">{{ .status }}</span>
+                            <span class="badge badge-{{ if eq .status "On Going"}}warning{{else if eq .status "completed"}}success{{else}}primary{{end}}">{{ .status }}</span>
                         </div>
                     </div>
                 </article>
