@@ -2,12 +2,12 @@
     <div id="search" class="widget widget_search">
         <form role="search" class="search-form-widget"><label><input type="search" class="search-field" placeholder="Search..."></label> <button type="submit" class="search-submit"><i class="ei ei-icon_search"></i></button></form>
     </div>
+    {{ if and (ne .Type "page") (ne .Type "blog") }}
     <div id="gp-posts-widget-2" class="widget gp-posts-widget">
-        {{ if and (ne .Type "page") (ne .Type "blog") }}
         <h2 class="widget-title">Daftar Isi</h2>
         <div class="gp-posts-widget-wrapper">
             {{ range (where .Site.Pages "Section" .Type) }}
-            {{ range first 10 .Pages.Reverse }}
+            {{ range .Pages.Reverse }}
             <div class="post-item">
                 <div class="post-widget-info">
                     <h5 class="post-widget-title"><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></h5>
@@ -16,8 +16,8 @@
             {{ end }}
             {{ end }}
         </div>
-        {{ end }}
     </div>
+    {{ end }}
     <div id="gp-posts-widget-2" class="widget gp-posts-widget">
         <h2 class="widget-title">Latest News</h2>
         <div class="gp-posts-widget-wrapper">
