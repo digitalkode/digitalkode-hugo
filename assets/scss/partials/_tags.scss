@@ -6,6 +6,10 @@ ul.tags__list {
   li.tag__item {
     display: inline-block;
     margin-right: 5px;
+    
+    &:last-child {
+      margin-right: 0;
+    }
 
     a:before {
       content: '#';
