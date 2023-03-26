@@ -36,7 +36,7 @@
 {{ $style := resources.Get "scss/app.scss" | resources.ExecuteAsTemplate "css/app.css" . | toCSS | minify | fingerprint }}
 <link type="text/css" rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 {{ range .AlternativeOutputFormats }}
-{{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s">` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
+{{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end }}
 {{ block "links" . }} {{ end }}
 {{ partial "seo-schema.html" .}}
