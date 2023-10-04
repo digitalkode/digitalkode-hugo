@@ -591,7 +591,6 @@
   }
 
   .member-social {
-    margin: 0;
     padding: 0;
     list-style: none;
     position: absolute;
@@ -599,7 +598,8 @@
     padding: 0 40px;
     z-index: 22;
     height: 28px;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
 
     li {
       display: inline-block;
@@ -4460,7 +4460,7 @@
       background: #7052fb;
       -webkit-box-shadow: 0 20px 30px 0 rgba(176, 70, 70, 0.3);
       box-shadow: 0 20px 30px 0 rgba(176, 70, 70, 0.3);
-      
+
       a {
         color: #fff;
       }
